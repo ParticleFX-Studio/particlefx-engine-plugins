@@ -1,0 +1,13 @@
+; ParticleFX Studio add-on demo project.
+
+config_version=5
+
+[application]
+
+config/name="ParticleFX Studio Add-on Demo"
+config/description="Demo project for the ParticleFX Studio Godot add-on."
+config/icon="res://addons/particlefx/icon.svg"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/particlefx/plugin.cfg")

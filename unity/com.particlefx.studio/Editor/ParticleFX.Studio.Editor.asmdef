@@ -1,0 +1,19 @@
+{
+    "name": "ParticleFX.Studio.Editor",
+    "rootNamespace": "ParticleFX.Studio.Editor",
+    "references": [
+        "ParticleFX.Studio.Runtime",
+        "Unity.2D.Sprite.Editor"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

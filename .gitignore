@@ -1,0 +1,4 @@
+.godot/
+/particlefx/
+*.import
+.DS_Store
