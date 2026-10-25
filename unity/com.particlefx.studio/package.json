@@ -1,13 +1,13 @@
 {
   "name": "com.particlefx.studio",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "displayName": "ParticleFX Studio",
   "description": "Browse the ParticleFX Studio effect library inside Unity and import effects as ready prefabs: a sliced sprite sheet, an Animator with the effect's animation at its fps and loop setting, an additive material for glow effects, and the pivot at the effect's centre. Open Window > ParticleFX Studio.",
   "unity": "2021.3",
   "license": "MIT",
-  "documentationUrl": "https://particlefx.studio",
-  "changelogUrl": "https://particlefx.studio",
-  "licensesUrl": "https://particlefx.studio",
+  "documentationUrl": "https://github.com/ParticleFX-Studio/particlefx-engine-plugins/blob/main/unity/com.particlefx.studio/README.md",
+  "changelogUrl": "https://github.com/ParticleFX-Studio/particlefx-engine-plugins/blob/main/unity/com.particlefx.studio/CHANGELOG.md",
+  "licensesUrl": "https://github.com/ParticleFX-Studio/particlefx-engine-plugins/blob/main/unity/com.particlefx.studio/LICENSE.md",
   "keywords": [
     "vfx",
     "particles",

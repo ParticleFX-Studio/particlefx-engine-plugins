@@ -10,7 +10,7 @@ namespace ParticleFX.Studio.Editor
     /// </summary>
     internal static class PfxSettings
     {
-        public const string PackageVersion = "0.1.0";
+        public const string PackageVersion = "0.1.1";
 
         const string KeyApiKey = "ParticleFXStudio.ApiKey";
         const string KeyApiBase = "ParticleFXStudio.ApiBase";

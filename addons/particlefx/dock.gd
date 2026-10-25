@@ -11,7 +11,7 @@ const PAGE_SIZE := 60
 const DEFAULT_TARGET := "res://particlefx/"
 const META_SECTION := "particlefx"
 const META_TARGET := "target_dir"
-const POSTER_SIZE := Vector2(132, 132)
+const POSTER_SIZE := Vector2(104, 104)
 const MAX_POSTER_DOWNLOADS := 4
 const SCENE_WAIT_SECONDS := 60.0
 
@@ -48,9 +48,13 @@ var _poster_queue: Array = [] # [url, TextureRect]
 var _poster_waiting := {} # url -> Array[TextureRect]
 var _poster_active := 0
 var _upgrade_url := ApiClient.PRICING_URL
+## Editor display scale (2 on most Retina and 4K setups): fixed sizes are multiplied by it, as the editor's own fonts are.
+var _ui_scale := 1.0
 
 
 func _ready() -> void:
+	if Engine.is_editor_hint() and Engine.has_singleton("EditorInterface"):
+		_ui_scale = maxf(1.0, Engine.get_singleton("EditorInterface").get_editor_scale())
 	name = "ParticleFX"
 	api = ApiClient.new()
 	api.name = "ApiClient"
@@ -157,7 +161,7 @@ func _build_ui() -> void:
 	# Tabs
 	_tabs = TabContainer.new()
 	_tabs.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	_tabs.custom_minimum_size = Vector2(0, 260)
+	_tabs.custom_minimum_size = Vector2(0, 260) * _ui_scale
 	add_child(_tabs)
 	_tabs.tab_changed.connect(_on_tab_changed)
 
@@ -179,7 +183,7 @@ func _build_ui() -> void:
 	_category_option.add_item("All categories")
 	_category_option.item_selected.connect(func(_i): _load_list("library", false))
 	_category_option.fit_to_longest_item = false
-	_category_option.custom_minimum_size = Vector2(130, 0)
+	_category_option.custom_minimum_size = Vector2(130, 0) * _ui_scale
 	filter_row.add_child(_category_option)
 	_search_timer = Timer.new()
 	_search_timer.one_shot = true
@@ -297,12 +301,13 @@ func _build_list(parent: Control) -> Dictionary:
 
 func _make_card(item: Dictionary) -> Control:
 	var card := PanelContainer.new()
-	card.custom_minimum_size = Vector2(POSTER_SIZE.x + 12, 0)
+	var poster_size := POSTER_SIZE * _ui_scale
+	card.custom_minimum_size = Vector2(poster_size.x + 12 * _ui_scale, 0)
 	card.tooltip_text = _card_tooltip(item)
 	var box := VBoxContainer.new()
 	card.add_child(box)
 	var poster := TextureRect.new()
-	poster.custom_minimum_size = POSTER_SIZE
+	poster.custom_minimum_size = poster_size
 	poster.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	poster.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	poster.mouse_filter = Control.MOUSE_FILTER_PASS
@@ -311,13 +316,13 @@ func _make_card(item: Dictionary) -> Control:
 	title.text = item.title
 	title.clip_text = true
 	title.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
-	title.custom_minimum_size = Vector2(POSTER_SIZE.x, 0)
+	title.custom_minimum_size = Vector2(poster_size.x, 0)
 	box.add_child(title)
 	var sub := Label.new()
 	sub.text = _card_subtitle(item)
 	sub.clip_text = true
 	sub.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
-	sub.custom_minimum_size = Vector2(POSTER_SIZE.x, 0)
+	sub.custom_minimum_size = Vector2(poster_size.x, 0)
 	sub.add_theme_color_override("font_color", get_theme_color("font_disabled_color", "Editor"))
 	sub.add_theme_font_size_override("font_size", maxi(10, get_theme_font_size("font_size", "Label") - 2))
 	box.add_child(sub)

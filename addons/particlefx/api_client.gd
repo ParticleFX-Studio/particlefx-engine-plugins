@@ -8,7 +8,7 @@ extends Node
 ## rate_limited, unavailable, bad_request, error.
 ## The parse_* functions are static so the tests can use them without a server.
 
-const ADDON_VERSION := "0.1.0"
+const ADDON_VERSION := "0.1.1"
 const DEFAULT_API_BASE := "https://mcp.particlefx.studio"
 const SITE_URL := "https://particlefx.studio"
 const BILLING_URL := "https://particlefx.studio/billing"
@@ -118,7 +118,7 @@ func _headers(with_key: bool, json_body: bool) -> PackedStringArray:
 
 # ---------------------------------------------------------------- parsing
 
-## X-PFX-Client header, e.g. "X-PFX-Client: godot-addon/0.1.0 (Godot 4.3.0)".
+## X-PFX-Client header, e.g. "X-PFX-Client: godot-addon/0.1.1 (Godot 4.3.0)".
 static func client_header() -> String:
 	return "X-PFX-Client: godot-addon/%s (Godot %s)" % [ADDON_VERSION, engine_version()]
 

@@ -1,4 +1,8 @@
+# The Godot Asset Library installs the repository archive: keep it to addons/.
 /unity export-ignore
+/docs export-ignore
+/project.godot export-ignore
+/CHANGELOG.md export-ignore
 /.gitattributes export-ignore
 /.gitignore export-ignore
 /README.md export-ignore
