@@ -17,9 +17,9 @@ what you import looks exactly like the preview. Make your own effects in the
 
 <img src="docs/images/godot-dock.png" alt="The ParticleFX dock in the Godot editor" width="285" align="right">
 
-1. Install **ParticleFX Studio** from the Godot Asset Library (AssetLib tab),
-   or copy `addons/particlefx` from this repository into your project's
-   `addons/` folder.
+1. Download this repository (**Code > Download ZIP**, or the latest
+   release) and copy `addons/particlefx` into your project's `addons/`
+   folder. A Godot Asset Library listing is on its way.
 2. Enable it in **Project > Project Settings > Plugins**.
 3. Open the **ParticleFX** dock, paste an API key from
    [particlefx.studio/billing](https://particlefx.studio/billing) and press
