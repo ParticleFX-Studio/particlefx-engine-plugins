@@ -5,6 +5,9 @@ GitHub account, after the repository is public.
 
 ## Godot Asset Library (godotengine.org/asset-library)
 
+Listed as asset 5543 (https://godotengine.org/asset-library/asset/5543), version 0.1.1,
+accepted 2026-10-26. To ship a new version, edit that asset and point it at the new commit.
+
 Sign in at https://godotengine.org/asset-library/asset/submit (the Asset
 Library has its own account; create it with particlefxstudio@gmail.com).
 
